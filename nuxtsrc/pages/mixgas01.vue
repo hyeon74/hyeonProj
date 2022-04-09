@@ -2,7 +2,8 @@
   <div>
     <h1>MixGas01</h1>
     <SubTabMenu01 />
-    {{Dil_O2_Val}}/ {{Dil_N2_Val}}
+    {{Dil_O2_Val}}/{{depAta_Cal}}
+    
   </div>
 </template>
 
@@ -12,19 +13,19 @@ export default{
         return{
             Dil_O2_Val: 21,
             Dil_N2_Val: 78,
-            Dil_He_Val,
-            Bailout_O2_Val,
-            Bailout_N2_Val,
-            Bailout_He_Val,
-            Set_DEPTH_Val,
-            Set_END_Val,
-            Setpoint_Val,
+            Dil_He_Val: 0,
+            Bailout_O2_Val: 0,
+            Bailout_N2_Val: 0,
+            Bailout_He_Val: 0,
+            Set_DEPTH_Val: 0,
+            Set_END_Val: 0,
+            Setpoint_Val: 0,
         }
     },
     computed: {
       //수심에 대한 절대압
       depAta_Cal() {
-        return 'depAta_Cal';
+        return process.env.VUE_APP_projectId;
       },
       //END에 대한 절대값
       endAta_Cal() {
