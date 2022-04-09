@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+require('dotenv').config()
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -25,6 +26,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '@/plugins/firebase',
+    '@/plugins/etc',
+    '@/plugins/moment',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -42,6 +46,11 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
     '@nuxtjs/firebase',
+    'vuetify-dialog/nuxt',
+  ],
+
+  serverMiddleware: [
+    { path: '/api', handler: '~/api/index.js' }
   ],
 
   firebase: {
@@ -59,14 +68,14 @@ export default {
     },
     services: {
       auth: true,
-            //firestore: true,
-            //functions: true,
-            //storage: true,
-            //database: true,
-            //messaging: true,
-            //performance: true,
-            //analytics: true,
-            //remoteConfig: true
+      firestore: true,
+      functions: true,
+      torage: true,
+      database: true,
+      messaging: true,
+      performance: true,
+      analytics: true,
+      remoteConfig: true
     }
   },
 
@@ -97,5 +106,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  generate: {
+    dir: '../public'
   }
+
 }
