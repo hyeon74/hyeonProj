@@ -2,7 +2,7 @@
   <div>
     <h1>MixGas01</h1>
     <SubTabMenu01 />
-    {{pO2Cal}}
+    {{Dil_O2_Val}}
   </div>
 </template>
 
